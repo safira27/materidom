@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="vie wport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<script>
+
+</script>
+<body>
+    <form>      
+        <!---->
+            <label for ="Nama">nama :</label>
+            <input type="text" id="Nama" oninput="proses()">
+            <br>
+            <label for ="email">email :</label>
+            <input type="text" id="email" oninput="proses()">
+            <br>
+            <label for ="gender" >Jenis kelamin:</label>
+            <input type="radio" name="gender" id="Kelamin" onchange="proses()"value="L">Pria
+            <input type="radio" name="gender" id="kelamin"onchange="proses()" value="P">Wanita
+            <!----><br>
+            <label for  ="agama">Agama:</label>
+            <select name="agama" id="agama" onchange="proses()">
+            <option value="Islam" >Islam</option>
+            <option value="Katolik">Katolik</option>
+            <option value="Protestan">Kristen Protestan</option>
+            <option value="Hindu">Hindu</option>
+            <option value="Buddha">Buddha</option>
+            <option value="Konghucu">Konghucu</option>
+            </select>
+            <!---->
+            <br>
+            <label for ="alamat" >Alamat rumah:</label><br>
+            <textarea name="alamat" id="alamat" oninput="proses()" cols="50" rows="3">
+            </textarea><br>
+            
+      <!---->      
+    </form>
+    <p id="out_nama"></p>
+    <p id="out_email"></p>
+    <p id="out_agama"></p>
+    <p id="out_kelamin"></p>
+    <p id="out_alamat"></p>
+
+    <script>
+        let Nama=""
+        let Email=""
+        let Agama=""
+        let Kelamin=""
+        let Alamat=""
+        function proses(){
+            Nama = document.getElementById("Nama").value;
+            Email = document.getElementById("email").value;
+            Agama = document.getElementById("agama").value;
+            Kelamin = document.getElementById("Kelamin").value;
+            Alamat= document.getElementById("alamat").value;
+
+            document.getElementById("out_nama").innerHTML = "Nama :" + Nama;
+            document.getElementById("out_email").innerHTML = "email :" + Email;
+            document.getElementById("out_agama").innerHTML = "agama :" + Agama;
+            document.getElementById("out_kelamin").innerHTML = "kelamin :" + Kelamin;
+            document.getElementById("out_alamat").innerHTML = "alamat :" + Alamat;
+            let kelamin = document.getElementsByName('gender');
+            for(i=0;i<kelamin.length;i++){
+                if(kelamin[i].checked)
+                document.getElementById("out_kelamin").innerHTML="Gender:"+kelamin[i].value;
+            }
+
+        }
+    </script>
+    <input type ="submit" value="kirim">
+</body>
+</html>
